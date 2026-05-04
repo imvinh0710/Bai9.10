@@ -1,6 +1,7 @@
 package com.lab;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 public class ShippingCalculatorTest {
     ShippingCalculator calc = new ShippingCalculator();
 
@@ -19,6 +20,11 @@ public class ShippingCalculatorTest {
         assertThrows(IllegalArgumentException.class,
             () -> calc.calculate(-1, "STANDARD"));
     }
+    @Test
+    void testNullType() {
+        assertThrows(NullPointerException.class, () -> calc.calculate(5, null));
+}
+
 }
 
 
